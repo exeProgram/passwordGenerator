@@ -1,0 +1,314 @@
+:root{
+    --background-flat: rgba(131,58,180,1);
+    --background-gradient: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+    --checkbox-checked: rgba(131,58,180,1);
+    --checkbox-symbol-invert: 0%;
+}
+
+html{
+    height: auto;
+}
+
+body{
+   width: auto;
+   height: auto;
+   min-height: 100vh;
+   margin: 0;
+   background: rgb(0,0,0);
+   overflow: hidden;
+   overflow-y: scroll;
+}
+
+h1,h2,h3,h4,h5,h6,label{
+    font-family: "Montserrat";
+    color: rgb(255,255,255);
+    font-weight: 100;
+    font-size: clamp(18px,3vw,20px);
+}
+
+h1,h2{
+    font-weight: 600;
+    font-size: clamp(20px,3vw,32px);
+}
+
+label{
+    font-size: clamp(12px,3vw, 20px);
+}
+
+.background{
+    display: block;
+    position: fixed;
+    background: rgb(131,58,180);
+    background: var(--background-flat);
+    background: var(--background-gradient) ;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    filter: blur(100px);
+    left: 0;
+    top: 0;
+}
+
+#gen-box-container{
+    display: grid;
+    place-content: center;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 2;
+    margin-top: 0.3vw;
+    margin-bottom: 2vw;
+}
+
+.gen-box-element{
+    background: rgb(26, 26, 26);
+    width: 70vw;
+    height: auto;
+    min-height: 70vh;
+    z-index: 2;
+    -webkit-box-shadow: 0px 0px 37px 15px rgba(0,0,0,0.34); 
+    box-shadow: 0px 0px 37px 15px rgba(0,0,0,0.34);
+    padding-bottom: 20px;
+}
+
+.gen-box-element h1{
+    width: calc(100% - 10px);
+    text-align: center;
+}
+
+.gen-box-element hr{
+    background: rgb(131,58,180);
+    background: var(--background-flat);
+    background: var(--background-gradient) ;
+    height: 5px;
+    outline: 0; border: 0;
+    width: 70%;
+    border-radius: 25px;
+}
+
+.gen-box-element-flex{
+    display: flex;
+    width: 97%;
+    margin-left: 1.5%;
+    margin-top: 25px;
+    min-height: 400px;
+}
+
+
+.gen-box-element-flex-element{
+    height: auto;
+    margin-left: 5px; margin-right: 5px;
+    width: 100%;
+    min-height: 100px;
+    background: rgb(19, 19, 19);
+    margin-top: 5px; margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.gen-box-element-flex-element h4{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.gen-box-element-flex-element hr{
+    height: 1px;
+    background: white;
+    width: 80%;
+}
+
+.password-container{
+    width: 94%;
+    height: auto;
+    min-height: 100px;
+    background: rgb(19, 19, 19);
+    margin: 5px;
+    margin-left: 2%;
+    position: relative;
+    min-height: 120px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 10px;
+}
+
+.password-container h5,h3{
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.password-container h3{
+    font-weight: 600;
+    font-size: clamp(24px, 3vw, 40px);
+    margin-bottom: 5px;
+    height: auto;
+    display: inline-block;
+    word-wrap: break-word;
+    opacity: 0;
+    min-height: 40px;
+    transition-property: opacity;
+    transition: 0.25s ease-in-out;
+}
+
+.password-container h5{
+    width: 100%;
+    font-size: clamp(25px,3vw,40px);
+    transform: translateY(50%);
+    transition: 0.25s ease-in-out;
+    transition-property: font-size, transform;
+}
+
+.button{
+    background: rgb(32,32,32);
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: clamp(18px,3vw,20px);
+    color: white;
+    text-decoration: none;
+    transition: 0.25s background;
+    position: relative;
+    z-index: 0;
+}
+
+
+.button::before{
+    content: ' ';
+    display: inline-block;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(131,58,180);
+    background: var(--background-flat);
+    background: var(--background-gradient);
+    border-radius: 25px;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.25s opacity ease-in-out;
+}
+
+
+
+.button:hover::before{
+    opacity: 1;
+}
+
+#clipboard-copy .generated-copy-button{
+    background: rgb(255,255,255);
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    border-radius: 25px;
+    margin: 0;
+    color: black;
+    font-size: clamp(18px,3vw, 20px);
+    text-align: center;
+    opacity: 0;
+    transition: 0.25s opacity ease-in-out;
+}
+
+.element-check-container{
+    width: calc(100% - 130px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.element-check-container input[type="checkbox"]{
+    appearance: none;
+    background: rgb(32,32,32);
+    width: 30px;
+    height: 30px;
+    border-radius: 25%;
+    position: relative;
+    transition: 0.25s background ease-in-out;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    padding: 10px;
+}
+
+.element-check-container input[type="range"]{
+    width: 100%;
+}
+
+
+.element-check-container input[type="checkbox"]:checked{
+   background: var(--background-flat);
+}
+
+.element-check-container input[type="checkbox"]:checked{
+    background: var(--checkbox-checked);
+}
+
+.element-check-container input[type="checkbox"]:checked::after{
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-image: url(../Media/checkbox.svg);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;  
+    filter: invert(var(--checkbox-symbol-invert));
+
+}
+
+.element-check-container label{
+    padding-right: 20px;
+}
+
+#controls-menu .button{
+    width: calc(100% - 130px);
+    text-align: center;
+}
+
+@media screen and (max-width: 1300px){
+    .element-check-container input[type="range"]{
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .gen-box-element-flex{
+        display: flex;
+        flex-direction: column;
+    }
+    .gen-box-element{
+        width: calc(95vw - 15px);
+        height: 95vh;
+    }
+    
+}
+
+@media screen and (max-width: 600px){
+    .gen-box-element-flex-element{
+        width: 99%;
+        height: auto;
+        min-height: 150px;
+        margin-left: 1px;
+    }
+    #controls-menu .button{
+        width: calc(100% - 100px);
+    }
+    .element-check-container{
+        width: calc(100% - 100px);
+    }
+}
+
+
+

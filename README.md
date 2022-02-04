@@ -1,3 +1,3 @@
 # passwordGeneratorSite
 
-It does what the title says, It generates passwords
+Website that can generate passswords

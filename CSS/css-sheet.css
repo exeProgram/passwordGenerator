@@ -246,11 +246,13 @@ label{
 
 
 .element-check-container input[type="checkbox"]:checked{
-   background: var(--background-flat);
+   /* background: var(--background-flat); */
+   background: rgb(76, 74, 189);
 }
 
 .element-check-container input[type="checkbox"]:checked{
-    background: var(--checkbox-checked);
+    /* background: var(--checkbox-checked);*/
+    background: rgb(76, 74, 189)
 }
 
 .element-check-container input[type="checkbox"]:checked::after{
